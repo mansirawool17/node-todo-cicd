@@ -15,7 +15,7 @@ pipeline {
          stage('login & push image'){
             steps {
                 echo 'logging into docker and pushing image'
-                withCredentials([usernamePassword(credentialsId:'dockerhub', usernameVariable:'USERNAME', passwordVariable:'PASSWORD')])
+                withCredentials([usernamePassword(credentialsId:'mansi', usernameVariable:'USERNAME', passwordVariable:'PASSWORD')])
                 {
                     sh "docker login -u ${env.USERNAME} -p ${env.PASSWORD}"
                     sh "docker push mansirawool/jenkins:latest"
